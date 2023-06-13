@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {RestList} from "../constants.js";
 import { imageURL } from "../constants.js";
 
@@ -11,14 +12,42 @@ const Card = ({cloudinaryImageId,name,cuisines,city}) =>{
         </div>
     );
 }
+
+
     
 const Body = () =>{
+
+    function filterData(Restaurent,searchText){
+        return (Restaurent.filter((rest)=>rest.data.name.includes(searchText)));
+    }
+
+    const [searchText,setSearchText]=useState("");
+    const [Restaurants,setRestList]=useState(RestList);
     return (
+    <>
+    <div className="body">
+        <input 
+            type="text"
+            placeholder="search"
+            value={searchText}
+            onChange={(e)=>{
+                setSearchText(e.target.value);
+            }}
+        />
+        <button type="submit"
+            onClick={
+                ()=>{setRestList(filterData(Restaurants,searchText));
+            }}
+        >Search</button>
+    </div>
+
     <div className="cardList">
-        {RestList.map((rest)=>{
+        {Restaurants.map((rest)=>{
             return (<Card {...rest.data} {...rest.data.slugs} key={rest.data.id}/>);
         })}
     </div>
+    
+    </>
     );
 }
 

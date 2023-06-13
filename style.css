@@ -1,0 +1,33 @@
+.services{
+    margin: 2%;
+    display: flex;
+    margin-left: 2%;
+}
+.items{
+    margin: 2%;
+    list-style-type: none;
+    margin: 2%;
+}
+.nav{
+    margin: 2%;
+    display: flex;
+    justify-content: space-between;
+    border: solid;
+}
+.card{
+    width: 300px;
+    height: 350px;
+    border: 10px solid black;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+.card > img{
+    width: 100%;
+}
+.cardList{
+    margin: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
